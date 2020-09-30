@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d6ef3233-48a7-4230-8fbd-7334c4f91287" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateGroupContactGet" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d6ef3233-48a7-4230-8fbd-7334c4f91287fileName">CreateGroupContactGet</con:setting></con:settings><con:testStep type="restrequest" name="CreateContact" id="e413b847-9795-43c7-8e39-499b95e36a1a"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addcontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateContact" id="11c77af7-8d64-4bed-9788-03def4d2c964" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+    "first": "${#TestCase#randomString1}",
+    "last": "${#TestCase#randomString2}",
+    "entryType":"Public",
+    "companyName":"${#TestCase#randomString3}",
+    "description":"${#TestCase#randomString4}",
+    "localization":"${#TestCase#randomString5}",
+    "organization":"${#TestCase#randomString6}",
+    "priority":10,
+    "phones":
+    [
+    	{
+    		"Number":${#TestCase#phone1},
+    		"PhoneType":"mobile"
+    		},
+    		{
+    		"Number":${#TestCase#phone2},
+    		"PhoneType":4
+    		}
+    	]
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addcontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="61466636-c3b2-485d-9206-c64421cf6ae8" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>first</con:entry><con:entry>last</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="eb9904ae-995d-45a6-9adf-96df2f3b727a"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>CreateContact</con:sourceStep><con:sourcePath>$.id</con:sourcePath><con:targetType>id</con:targetType><con:targetStep>GetContact_konsola1</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>CreateContact</con:sourceStep><con:sourcePath>$.id</con:sourcePath><con:targetType>id</con:targetType><con:targetStep>GetContact_konsola2</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="GetContact_konsola1" id="78839fe6-3135-4987-aeac-8b0b81f0405e"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetContact_konsola1" id="ffd57352-5bb8-438c-aa18-2512ee6a5da2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request/><con:originalUri>http://192.168.102.192/api/contacts/id</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a19e10d1-8b43-4836-b6fe-be9cb06dd838" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="cn=jyUaR ApJGj,ou=Address Book,dc=ldap,dc=dgt,dc=com,dc=pl" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>id</con:entry><con:entry>first</con:entry><con:entry>last</con:entry><con:entry>tel</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetContact_konsola2" id="7af7ce28-3b55-4b73-b76e-0605dcfb56cb"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetContact_konsola2" id="ffd57352-5bb8-438c-aa18-2512ee6a5da2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.106.10:9000</con:endpoint><con:request/><con:originalUri>http://192.168.102.192/api/contacts/id</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="349eff23-cea5-4265-93b3-78de6e437a16" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="cn=jyUaR ApJGj,ou=Address Book,dc=ldap,dc=dgt,dc=com,dc=pl" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>id</con:entry><con:entry>first</con:entry><con:entry>last</con:entry><con:entry>tel</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:setupScript>import java.util.Random
+Random random = new Random()
+
+def minPhone = 513311111
+def maxPhone = 599999999
+
+def min = 11111
+def max = 99999
+
+def randomValue1 = random.nextInt(max + 1 - min) + min;
+def randomValue2 = random.nextInt(max + 1 - min) + min;
+def randomValue3 = random.nextInt(max + 1 - min) + min;
+def randomValue4 = random.nextInt(max + 1 - min) + min;
+
+def phone1 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+def phone2 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+
+def props = testRunner.testCase
+
+log.info('tworze zmienna ')
+
+props.setPropertyValue("randomValue1", String.valueOf(randomValue1) )
+props.setPropertyValue("randomValue2", String.valueOf(randomValue2) )
+props.setPropertyValue("randomValue3", String.valueOf(randomValue3) )
+props.setPropertyValue("randomValue4", String.valueOf(randomValue3) )
+
+props.setPropertyValue("phone1", String.valueOf(phone1) )
+props.setPropertyValue("phone2", String.valueOf(phone2) )
+
+import org.apache.commons.lang.RandomStringUtils
+charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+
+def randomString1 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString2 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString3 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString4 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString5 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString6 = RandomStringUtils.random(5, charset.toCharArray())
+
+props.setPropertyValue("randomString1", String.valueOf(randomString1) )
+props.setPropertyValue("randomString2", String.valueOf(randomString2) )
+props.setPropertyValue("randomString3", String.valueOf(randomString3) )
+props.setPropertyValue("randomString4", String.valueOf(randomString4) )
+props.setPropertyValue("randomString5", String.valueOf(randomString5) )
+props.setPropertyValue("randomString6", String.valueOf(randomString6) )</con:setupScript><con:properties><con:property><con:name>randomValue1</con:name><con:value>41207</con:value></con:property><con:property><con:name>randomValue2</con:name><con:value>98336</con:value></con:property><con:property><con:name>randomValue3</con:name><con:value>57141</con:value></con:property><con:property><con:name>randomValue4</con:name><con:value>57141</con:value></con:property><con:property><con:name>phone1</con:name><con:value>529970737</con:value></con:property><con:property><con:name>phone2</con:name><con:value>565966514</con:value></con:property><con:property><con:name>randomString1</con:name><con:value>ApJGj</con:value></con:property><con:property><con:name>randomString2</con:name><con:value>jyUaR</con:value></con:property><con:property><con:name>randomString3</con:name><con:value>hTklb</con:value></con:property><con:property><con:name>randomString4</con:name><con:value>T3QCr</con:value></con:property><con:property><con:name>randomString5</con:name><con:value>oFGPi</con:value></con:property><con:property><con:name>randomString6</con:name><con:value>f0e6u</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d2473aae-8fe4-4c4c-a4a8-7f0bdb47225b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateGroupGroupGet" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d2473aae-8fe4-4c4c-a4a8-7f0bdb47225bfileName">CreateGroupGroupGet</con:setting></con:settings><con:testStep type="restrequest" name="CreateGroup" id="a305bbb9-f4f0-4f9d-b3d6-d8f55a7e52fb"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/addgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateGroup" id="e7e26a4f-4cf5-4ed9-917f-0088f8bbd6da" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+"name" : "${#TestCase#randomString1}",
+"entryType" : "2"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/addgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2380368b-7238-4ef7-a930-d8b38b32e142" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="6463af9f-ecba-4c00-ae25-15122d7cc8e8"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>CreateGroup</con:sourceStep><con:sourcePath>$.id</con:sourcePath><con:targetType>id</con:targetType><con:targetStep>GetGroup_konsola1</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="GetGroup_konsola1" id="2555ce27-c002-4d9c-9a34-622cd7afecdb"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetGroup_konsola1" id="7e021f05-ef68-46c2-927d-ff1b2972189c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request/><con:originalUri>http://192.168.102.192/api/group/cn=GR31,ou=WCPR2,dc=ldap,dc=dgt,dc=com,dc=pl</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="3d4d6478-843c-4038-80d2-4a3db2ccd2f9" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="cn=Nv2oY,ou=Address Book,dc=ldap,dc=dgt,dc=com,dc=pl" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetGroup_konsola2" id="eb7cfb49-94a6-4081-b2c3-ec4fffa2414a"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetGroup_konsola2" id="7e021f05-ef68-46c2-927d-ff1b2972189c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.106.10:9000</con:endpoint><con:request/><con:originalUri>http://192.168.102.192/api/group/cn=GR31,ou=WCPR2,dc=ldap,dc=dgt,dc=com,dc=pl</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="4f171fdc-f8af-43cf-97b9-8a47b276f4ce" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="cn=AS10,ou=Address Book,dc=ldap,dc=dgt,dc=com,dc=pl" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:setupScript>import java.util.Random
+Random random = new Random()
+ 
+def minPhone = 513311111
+def maxPhone = 599999999
+
+def min = 11111
+def max = 99999
+
+def randomValue1 = random.nextInt(max + 1 - min) + min;
+def randomValue2 = random.nextInt(max + 1 - min) + min;
+def randomValue3 = random.nextInt(max + 1 - min) + min;
+
+def phone1 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+def phone2 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+
+
+
+def props = testRunner.testCase
+
+log.info('tworze zmienna ')
+
+props.setPropertyValue("randomValue1", String.valueOf(randomValue1) )
+props.setPropertyValue("randomValue2", String.valueOf(randomValue2) )
+props.setPropertyValue("randomValue3", String.valueOf(randomValue3) )
+
+props.setPropertyValue("phone1", String.valueOf(phone1) )
+props.setPropertyValue("phone2", String.valueOf(phone2) )
+
+import org.apache.commons.lang.RandomStringUtils 
+charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+
+def randomString1 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString2 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString3 = RandomStringUtils.random(5, charset.toCharArray())
+
+
+props.setPropertyValue("randomString1", String.valueOf(randomString1) )
+props.setPropertyValue("randomString2", String.valueOf(randomString2) )
+props.setPropertyValue("randomString3", String.valueOf(randomString3) )
+
+charsetPolishLetters = ['ą', 'ę', 'ó', 'ń', 'Ą', 'Ę', 'Ń'].join()
+
+def randomString4 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString4", String.valueOf(randomString4) )
+
+def randomString5 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString5", String.valueOf(randomString5) )</con:setupScript><con:properties><con:property><con:name>randomValue1</con:name><con:value>77752</con:value></con:property><con:property><con:name>randomValue2</con:name><con:value>45497</con:value></con:property><con:property><con:name>randomValue3</con:name><con:value>67609</con:value></con:property><con:property><con:name>phone1</con:name><con:value>517187229</con:value></con:property><con:property><con:name>phone2</con:name><con:value>536877464</con:value></con:property><con:property><con:name>randomString1</con:name><con:value>Nv2oY</con:value></con:property><con:property><con:name>randomString2</con:name><con:value>EwHKk</con:value></con:property><con:property><con:name>randomString3</con:name><con:value>zGluh</con:value></con:property><con:property><con:name>randomString4</con:name><con:value>óĄĘąę</con:value></con:property><con:property><con:name>randomString5</con:name><con:value>ĘąńąĄ</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

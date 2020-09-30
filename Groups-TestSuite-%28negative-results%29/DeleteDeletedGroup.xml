@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9d10a7c9-4170-4ac0-a00e-070357250e5b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteDeletedGroup" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="9d10a7c9-4170-4ac0-a00e-070357250e5bfileName">DeleteDeletedGroup</con:setting></con:settings><con:testStep type="restrequest" name="CreateGroup" id="197cb841-72fa-4456-9400-c118e408760c"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/addgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateGroup" id="e7e26a4f-4cf5-4ed9-917f-0088f8bbd6da" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+"name" : "${#TestCase#randomString1}",
+"entryType" : "0"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/addgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="10d33c51-c03e-4e57-8d9e-1a39d59fa6a4" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteGroup" id="09e2190c-e126-438c-8426-94ff24395494"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/deletegroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteGroup" id="41716451-951a-46fe-a5f0-7101139ac2f5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"name":"${CreateGroup#Response#$.name}",
+	"id":"${CreateGroup#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/deletegroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="fa8347e4-6898-44d7-87b8-819e97557806" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteGroup2" id="a0ac6874-b7fe-41a8-9d8c-cefe63b3816a"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/deletegroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteGroup2" id="41716451-951a-46fe-a5f0-7101139ac2f5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"name":"${DeleteGroup#Response#$.name}",
+	"id":"${DeleteGroup#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/deletegroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="0614758f-e911-4b1b-80f6-6a75a9164338" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>404</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:setupScript>import java.util.Random
+Random random = new Random()
+ 
+def minPhone = 513311111
+def maxPhone = 599999999
+
+def min = 11111
+def max = 99999
+
+def randomValue1 = random.nextInt(max + 1 - min) + min;
+def randomValue2 = random.nextInt(max + 1 - min) + min;
+def randomValue3 = random.nextInt(max + 1 - min) + min;
+
+def phone1 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+def phone2 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+
+
+
+def props = testRunner.testCase
+
+log.info('tworze zmienna ')
+
+props.setPropertyValue("randomValue1", String.valueOf(randomValue1) )
+props.setPropertyValue("randomValue2", String.valueOf(randomValue2) )
+props.setPropertyValue("randomValue3", String.valueOf(randomValue3) )
+
+props.setPropertyValue("phone1", String.valueOf(phone1) )
+props.setPropertyValue("phone2", String.valueOf(phone2) )
+
+import org.apache.commons.lang.RandomStringUtils 
+charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+
+def randomString1 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString2 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString3 = RandomStringUtils.random(5, charset.toCharArray())
+
+
+props.setPropertyValue("randomString1", String.valueOf(randomString1) )
+props.setPropertyValue("randomString2", String.valueOf(randomString2) )
+props.setPropertyValue("randomString3", String.valueOf(randomString3) )
+
+charsetPolishLetters = ['ą', 'ę', 'ó', 'ń', 'Ą', 'Ę', 'Ń'].join()
+
+def randomString4 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString4", String.valueOf(randomString4) )
+
+def randomString5 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString5", String.valueOf(randomString5) )</con:setupScript><con:properties><con:property><con:name>randomValue1</con:name><con:value>28955</con:value></con:property><con:property><con:name>randomValue2</con:name><con:value>88075</con:value></con:property><con:property><con:name>randomValue3</con:name><con:value>58118</con:value></con:property><con:property><con:name>phone1</con:name><con:value>553784391</con:value></con:property><con:property><con:name>phone2</con:name><con:value>528305939</con:value></con:property><con:property><con:name>randomString1</con:name><con:value>dobh7</con:value></con:property><con:property><con:name>randomString2</con:name><con:value>svezZ</con:value></con:property><con:property><con:name>randomString3</con:name><con:value>RNJpd</con:value></con:property><con:property><con:name>randomString4</con:name><con:value>ŃęęóĄ</con:value></con:property><con:property><con:name>randomString5</con:name><con:value>ĘńóĘą</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

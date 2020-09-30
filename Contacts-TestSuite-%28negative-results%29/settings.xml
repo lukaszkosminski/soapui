@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="582a7655-cdf2-4829-805a-2b0148867f32" name="Contacts TestSuite (negative results)" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="582a7655-cdf2-4829-805a-2b0148867f32fileName">Contacts-TestSuite-%28negative-results%29</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:setupScript/><con:reportParameters/></con:testSuite>

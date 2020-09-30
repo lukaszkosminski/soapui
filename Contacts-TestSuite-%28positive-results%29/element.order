@@ -1,0 +1,11 @@
+GetAllContacts.xml
+CreateNewContact.xml
+CreateNewContactGet.xml
+DeleteContact.xml
+EditContact.xml
+EditContactGet.xml
+CreatePublicContactGet.xml
+AddContactWithPolishLetters.xml
+AddContactWithoutPhoneNumber.xml
+CreateGroupContactGet.xml
+AddContactWithSpecialNumber.xml

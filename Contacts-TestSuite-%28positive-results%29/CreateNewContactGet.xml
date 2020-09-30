@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5a163ab8-4ccc-4a73-8ef9-8b3fd77b7c92" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateNewContactGet" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="5a163ab8-4ccc-4a73-8ef9-8b3fd77b7c92fileName">CreateNewContactGet</con:setting></con:settings><con:testStep type="restrequest" name="CreateContact" id="6b761841-ecfb-4b2d-91e3-74ab39239771"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addcontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateContact" id="11c77af7-8d64-4bed-9788-03def4d2c964" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{ 
+	"first": "${#TestCase#randomString1}", 
+	"last": "${#TestCase#randomString2}", 
+	"tel": "${#TestCase#randomValue2}" 
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addcontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="15986205-4c63-4d2a-9ea7-dc23a9ad6a05" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>first</con:entry><con:entry>last</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="663b5963-aabb-41f6-ae7d-2131f38fcb35"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>CreateContact</con:sourceStep><con:sourcePath>$.id</con:sourcePath><con:targetType>id</con:targetType><con:targetStep>GetContact</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>first</con:name><con:sourceType>Request</con:sourceType><con:sourceStep>CreateContact</con:sourceStep><con:sourcePath>$.first</con:sourcePath><con:targetType>first</con:targetType><con:targetStep>GetContact</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>last</con:name><con:sourceType>Request</con:sourceType><con:sourceStep>CreateContact</con:sourceStep><con:sourcePath>$.last</con:sourcePath><con:targetType>last</con:targetType><con:targetStep>GetContact</con:targetStep><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="GetContact" id="fc4a167b-d2f2-44db-b980-91ed7a777502"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetContact" id="ffd57352-5bb8-438c-aa18-2512ee6a5da2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request/><con:originalUri>http://192.168.102.192/api/contacts/id</con:originalUri><con:assertion type="JsonPath Match" id="030bf0c7-312c-47b5-ab65-b7ad87e45fe0" name="JsonPath Match" disabled="true"><con:configuration><path>$.first</path><content>${</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="a8a6e2d4-c5d3-4f9f-839a-6267a61857c6" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="last" value="${#TestCase#randomString2}"/>
+  <con:entry key="tel" value=""/>
+  <con:entry key="id" value="cn=9IXIO nqMet,ou=Address Book,cn=KD-DGT2-008,ou=WCPR2,dc=ldap,dc=dgt,dc=com,dc=pl"/>
+  <con:entry key="first" value="${#TestCase#randomString1}"/>
+</con:parameters><con:parameterOrder><con:entry>id</con:entry><con:entry>first</con:entry><con:entry>last</con:entry><con:entry>tel</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteContact" id="dee998be-e628-4323-a936-9754be0c4635"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/deletecontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteContact" id="fcb7c8a8-cab6-4925-9b31-32a9a3cfba19" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{ 
+	"id": "${CreateContact#Response#$.id}"
+}
+
+</con:request><con:originalUri>http://192.168.102.192/api/contacts/deletecontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="7644fe8f-755a-4c75-ad3f-30d2144fb7a7" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="cn=Eo7fU DP3PV,ou=Address Book,dc=ldap,dc=dgt,dc=com,dc=pl" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:setupScript>import java.util.Random
+Random random = new Random()
+ 
+def minPhone = 513311111
+def maxPhone = 599999999
+
+def min = 11111
+def max = 99999
+
+def randomValue1 = random.nextInt(max + 1 - min) + min;
+def randomValue2 = random.nextInt(max + 1 - min) + min;
+def randomValue3 = random.nextInt(max + 1 - min) + min;
+
+def phone1 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+def phone2 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+
+
+
+def props = testRunner.testCase
+
+log.info('tworze zmienna ')
+
+props.setPropertyValue("randomValue1", String.valueOf(randomValue1) )
+props.setPropertyValue("randomValue2", String.valueOf(randomValue2) )
+props.setPropertyValue("randomValue3", String.valueOf(randomValue3) )
+
+props.setPropertyValue("phone1", String.valueOf(phone1) )
+props.setPropertyValue("phone2", String.valueOf(phone2) )
+
+import org.apache.commons.lang.RandomStringUtils 
+charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+
+def randomString1 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString2 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString3 = RandomStringUtils.random(5, charset.toCharArray())
+
+props.setPropertyValue("randomString1", String.valueOf(randomString1) )
+props.setPropertyValue("randomString2", String.valueOf(randomString2) )
+props.setPropertyValue("randomString3", String.valueOf(randomString3) )</con:setupScript><con:properties><con:property><con:name>randomValue1</con:name><con:value>61694</con:value></con:property><con:property><con:name>randomValue2</con:name><con:value>25707</con:value></con:property><con:property><con:name>randomValue3</con:name><con:value>16267</con:value></con:property><con:property><con:name>phone1</con:name><con:value>541969056</con:value></con:property><con:property><con:name>phone2</con:name><con:value>571506658</con:value></con:property><con:property><con:name>randomString1</con:name><con:value>nqMet</con:value></con:property><con:property><con:name>randomString2</con:name><con:value>9IXIO</con:value></con:property><con:property><con:name>randomString3</con:name><con:value>AqRvD</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

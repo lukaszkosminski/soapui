@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="430eec0a-f359-468d-916f-48424b92e032" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddSomeContactsToPublicGroup" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="430eec0a-f359-468d-916f-48424b92e032fileName">AddSomeContactsToPublicGroup</con:setting></con:settings><con:testStep type="restrequest" name="CreateGroup" id="bbbf1a97-7492-4769-9ad1-85934ce9d433"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/addgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateGroup" id="e7e26a4f-4cf5-4ed9-917f-0088f8bbd6da" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+"name" : "${#TestCase#randomString1}",
+"entryType" : "2"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/addgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="58fa2aa8-f906-4b4e-9f96-6f02267239fa" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreateContact1" id="c854c648-7f0f-4760-86c8-056a3942acd8"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addcontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateContact1" id="11c77af7-8d64-4bed-9788-03def4d2c964" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+    "first": "${#TestCase#randomString1}",
+    "last": "${#TestCase#randomString2}",
+    "entryType":"Public",
+    "companyName":"DGT",
+    "description":"aa",
+    "localization":"gda",
+    "organization":"dd",
+    "priority":10,
+    "phones":
+    [
+    	{
+    		"Number":${#TestCase#phone1},
+    		"PhoneType":"mobile"
+    		},
+    		{
+    		"Number":2,
+    		"PhoneType":4
+    		}
+    	]
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addcontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a8259177-a8a3-400b-b276-25a72937d61b" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>first</con:entry><con:entry>last</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreateContact2" id="7d080d8d-f5ab-423e-bda5-664faf3a9ee7"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addcontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateContact2" id="11c77af7-8d64-4bed-9788-03def4d2c964" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+    "first": "${#TestCase#randomString2}",
+    "last": "${#TestCase#randomString3}",
+    "entryType":"Public",
+    "companyName":"DGT",
+    "description":"aa",
+    "localization":"gda",
+    "organization":"dd",
+    "priority":10,
+    "phones":
+    [
+    	{
+    		"Number":${#TestCase#phone1},
+    		"PhoneType":"mobile"
+    		},
+    		{
+    		"Number":2,
+    		"PhoneType":4
+    		}
+    	]
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addcontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a8259177-a8a3-400b-b276-25a72937d61b" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>first</con:entry><con:entry>last</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreateContact3" id="58254d6b-a1cd-4304-8bc8-545fb2cc5ea9"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addcontact" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateContact3" id="11c77af7-8d64-4bed-9788-03def4d2c964" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+    "first": "${#TestCase#randomString4}",
+    "last": "${#TestCase#randomString5}",
+    "entryType":"Public",
+    "companyName":"DGT",
+    "description":"aa",
+    "localization":"gda",
+    "organization":"dd",
+    "priority":10,
+    "phones":
+    [
+    	{
+    		"Number":${#TestCase#phone1},
+    		"PhoneType":"mobile"
+    		},
+    		{
+    		"Number":2,
+    		"PhoneType":4
+    		}
+    	]
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addcontact</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a8259177-a8a3-400b-b276-25a72937d61b" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>first</con:entry><con:entry>last</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="AddToGroup1" id="c0f348de-5987-4a94-acb2-0fb325594557"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addtogroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AddToGroup1" id="654f8e28-f41e-4567-8cd0-689e76ca8ee5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${CreateGroup#Response#$.id}",
+	"contactId":"${CreateContact1#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addtogroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="447428e6-da56-444a-b0a0-3f797bbb85d5" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="AddToGroup2" id="6dd8e230-b58a-4293-92cb-48205f1a46c6"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addtogroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AddToGroup2" id="654f8e28-f41e-4567-8cd0-689e76ca8ee5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${CreateGroup#Response#$.id}",
+	"contactId":"${CreateContact2#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addtogroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="447428e6-da56-444a-b0a0-3f797bbb85d5" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="AddToGroup3" id="815b75bf-6109-438f-8e88-85505f7d4621"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/addtogroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AddToGroup3" id="654f8e28-f41e-4567-8cd0-689e76ca8ee5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${CreateGroup#Response#$.id}",
+	"contactId":"${CreateContact3#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/addtogroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="447428e6-da56-444a-b0a0-3f797bbb85d5" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetGroupContacts" id="2e2062bd-aa9b-4320-98e3-ea7b6de4de7e"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/getgroupcontacts" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetGroupContacts" id="34c90737-d057-4757-8347-8a86370f6150" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${CreateGroup#Response#$.id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/getgroupcontacts</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8ecf755c-cf87-4069-b0e2-1a6cb6e158f4" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteFromGroup1" id="9e70f96d-0fd0-42d7-a6cc-5032e6a55cbb"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/deletefromgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteFromGroup1" id="579a090c-61c7-498e-8d68-283541ed69cc" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${AddToGroup1#Response#$.groupId}",
+	"contactId":"${AddToGroup1#Response#$.contactId}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/deletefromgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="3be99f93-4e71-4733-8cfe-3113ceb8ee7f" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteFromGroup2" id="edc7d292-f4c8-49a9-86d2-8210bb2c81bb"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/deletefromgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteFromGroup2" id="579a090c-61c7-498e-8d68-283541ed69cc" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${AddToGroup2#Response#$.groupId}",
+	"contactId":"${AddToGroup2#Response#$.contactId}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/deletefromgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="3be99f93-4e71-4733-8cfe-3113ceb8ee7f" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteFromGroup3" id="0565ecc0-c1cb-4daf-a6ae-644efd68e4ba"><con:settings/><con:config service="WEBAPI" resourcePath="/api/contacts/deletefromgroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteFromGroup3" id="579a090c-61c7-498e-8d68-283541ed69cc" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"groupId":"${AddToGroup3#Response#$.groupId}",
+	"contactId":"${AddToGroup3#Response#$.contactId}"
+}</con:request><con:originalUri>http://192.168.102.192/api/contacts/deletefromgroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="3be99f93-4e71-4733-8cfe-3113ceb8ee7f" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteGroup" id="69815425-b7b2-4f2c-8dbd-f8c3571353f7"><con:settings/><con:config service="WEBAPI" resourcePath="/api/group/deletegroup" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteGroup" id="41716451-951a-46fe-a5f0-7101139ac2f5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.102.192:9000</con:endpoint><con:request>{
+	"name":"${CreateGroup#Response#$.name}",
+	"id":"${CreateGroup#Response#$.id}${GetGroup#id}"
+}</con:request><con:originalUri>http://192.168.102.192/api/group/deletegroup</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f1cd4403-f5e3-461e-9a81-eff9caa49453" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:setupScript>import java.util.Random
+Random random = new Random()
+ 
+def minPhone = 513311111
+def maxPhone = 599999999
+
+def min = 11111
+def max = 99999
+
+def randomValue1 = random.nextInt(max + 1 - min) + min;
+def randomValue2 = random.nextInt(max + 1 - min) + min;
+def randomValue3 = random.nextInt(max + 1 - min) + min;
+
+def phone1 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+def phone2 = random.nextInt(maxPhone + 1 - minPhone) + minPhone;
+
+
+
+def props = testRunner.testCase
+
+log.info('tworze zmienna ')
+
+props.setPropertyValue("randomValue1", String.valueOf(randomValue1) )
+props.setPropertyValue("randomValue2", String.valueOf(randomValue2) )
+props.setPropertyValue("randomValue3", String.valueOf(randomValue3) )
+
+props.setPropertyValue("phone1", String.valueOf(phone1) )
+props.setPropertyValue("phone2", String.valueOf(phone2) )
+
+import org.apache.commons.lang.RandomStringUtils 
+charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+
+def randomString1 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString2 = RandomStringUtils.random(5, charset.toCharArray())
+def randomString3 = RandomStringUtils.random(5, charset.toCharArray())
+
+
+props.setPropertyValue("randomString1", String.valueOf(randomString1) )
+props.setPropertyValue("randomString2", String.valueOf(randomString2) )
+props.setPropertyValue("randomString3", String.valueOf(randomString3) )
+
+charsetPolishLetters = ['ą', 'ę', 'ó', 'ń', 'Ą', 'Ę', 'Ń'].join()
+
+def randomString4 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString4", String.valueOf(randomString4) )
+
+def randomString5 = RandomStringUtils.random(5, charsetPolishLetters.toCharArray())
+props.setPropertyValue("randomString5", String.valueOf(randomString5) )</con:setupScript><con:properties><con:property><con:name>randomValue1</con:name><con:value>32811</con:value></con:property><con:property><con:name>randomValue2</con:name><con:value>31184</con:value></con:property><con:property><con:name>randomValue3</con:name><con:value>60735</con:value></con:property><con:property><con:name>phone1</con:name><con:value>538233932</con:value></con:property><con:property><con:name>phone2</con:name><con:value>563028243</con:value></con:property><con:property><con:name>randomString1</con:name><con:value>KEYIZ</con:value></con:property><con:property><con:name>randomString2</con:name><con:value>7MMtJ</con:value></con:property><con:property><con:name>randomString3</con:name><con:value>yuXji</con:value></con:property><con:property><con:name>randomString4</con:name><con:value>ĘóąęŃ</con:value></con:property><con:property><con:name>randomString5</con:name><con:value>ńąŃĄą</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

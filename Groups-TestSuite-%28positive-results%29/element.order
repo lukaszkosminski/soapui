@@ -1,0 +1,10 @@
+GetAllGroups.xml
+CreateGetDeleteNewGroupPrivate.xml
+CreateGetDeleteNewGroupGroup.xml
+CreateGetDeleteNewGroupPublic.xml
+CreateEditDeleteNewGroupPrivate.xml
+CreateEditDeleteNewGroupGroup.xml
+CreateEditDeleteNewGroupPublic.xml
+AddGroupWithPolishLetters.xml
+CreatePublicGroupGet.xml
+CreateGroupGroupGet.xml

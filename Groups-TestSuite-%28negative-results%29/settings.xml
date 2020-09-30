@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="aa372e2c-d699-48dd-9287-33473e4b8c82" name="Groups TestSuite (negative results)" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="aa372e2c-d699-48dd-9287-33473e4b8c82fileName">Groups-TestSuite-%28negative-results%29</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="20deaa6c-85ae-4852-a72e-7cf275f50859" name="MoveContactsToGroups (positive results)" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="20deaa6c-85ae-4852-a72e-7cf275f50859fileName">MoveContactsToGroups-%28positive-results%29</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>
